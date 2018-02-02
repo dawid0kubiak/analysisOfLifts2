@@ -1,0 +1,16 @@
+<%= tabs do |tab| %>
+  <% tab.tab 'Ustaw filte' do %>
+    <%= render 'simple_filters', url: reports_all_operation_path %>
+  <% end %>
+  <% tab.tab 'Filtry zapisaneme' do %>
+    <%= render 'saved_filters', url: reports_all_operation_path %>
+  <% end %>
+  <% tab.tab 'Zaawansowane' do %>
+    <%= render 'advanced_filters', url: reports_all_operation_path %>
+  <% end %>
+<% end %>
+
+
+
+
+

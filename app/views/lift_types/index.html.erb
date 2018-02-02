@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Typy wydatków</h1>
+
+<%= link_to 'Nowy typ wyciągu', new_lift_type_path, class: 'btn btn-outline-success' %>
+<br>
+<br>
+<table class="table table-sm table-hover table-dark">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Zapytanie</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @lift_types.each do |lift_type| %>
+    <tr>
+      <td><%= lift_type.name %></td>
+      <td><%= lift_type.condition %></td>
+      <td><%= link_to 'Edit', edit_lift_type_path(lift_type), class: 'btn btn-outline-success' %></td>
+      <td><%= link_to 'Destroy', lift_type, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-outline-danger'
+      %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+

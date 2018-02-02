@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  host: localhost
+  user: postgres
+  password: zaqwsx
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: analysis_devel
+
+test:
+  <<: *default
+  database: analysis_test
+
+production:
+  database: postgresql-triangular-33733
+  adapter: postgresql
+  host: localhost
+  password:
