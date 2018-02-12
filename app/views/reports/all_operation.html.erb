@@ -3,8 +3,9 @@
 <%= render 'charts' %>
 </div>
 
-<div class="row">
   <h2>Saldo transakcji: <span id="amountcount"></span></h2>
+<div class="row">
+<%= paginate @lifts %>
   <table class="table table-sm table-hover table-dark">
     <thead>
     <tr>
@@ -39,3 +40,4 @@
     </tbody>
   </table>
 </div>
+

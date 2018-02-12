@@ -3,7 +3,7 @@ module ApplicationHelper
     logo_link = link_to name, url_for, class: 'navbar-brand'
     nav_ul = content_tag(:ul, capture(&block), class: 'navbar-nav')
     nav_in = safe_join([logo_link, nav_ul])
-    content_tag(:nav, nav_in, class: 'navbar navbar-expand-sm bg-dark navbar-dark ')
+    content_tag(:nav, nav_in, class: 'navbar navbar-expand-sm bg-dark navbar-dark fixed-top ')
   end
 
   def menu_item_to(name, menu_path)
