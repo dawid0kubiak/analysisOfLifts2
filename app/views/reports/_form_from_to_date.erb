@@ -1,16 +1,17 @@
 <%= bootstrap_form_for @form_date, url: reports_all_operation_path do |f| %>
 <div class="row">
     <div class="col-md-2">
-    <%= f.radio_button :type, 'commissioned', label: 'Data transakcji', checked: true %>
-    <%= f.radio_button :type, 'booking', label: 'Data księgowania' %>
+  <%= f.select :type, [["transakcji", 'commissioned'], ["księgowania", 'booking']], { label: "Data:" }, { class: "selectpicker",  wrapper: { class: 'has-warning', data: { foo: 'bar' } } } %>
+    <%# f.radio_button :type, 'commissioned', label: 'Data transakcji', checked: true, inline: true %>
+    <%# f.radio_button :type, 'booking', label: 'Data księgowania', inline: true %>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <%= f.date_field :start, value: @form_date.start %>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <%= f.date_field :stop, value: @form_date.stop %>
     </div>
-    <div class="col-md-2" style="margin-top: 25px;">
+    <div class="col-md-4" style="margin-top: 25px;">
       <%= f.submit 'Ustaw datę', class: 'btn btn-success' %>
       <input type="submit" name="commit" value="Wyczyść daty" class="btn btn-info" form="clear_date" data-remote="true">
     </div>
