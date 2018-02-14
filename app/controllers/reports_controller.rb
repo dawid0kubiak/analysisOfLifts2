@@ -13,13 +13,13 @@ class ReportsController < ApplicationController
   def all_operation
     @lifts = @lifts.where('amount < 0').where(sql_date).where(@sql)
     @chart_data = chart_data @lifts
-    @lifts = @lifts.order(date_of_commissioned: :desc).page params[:page]
+    @lifts = @lifts.order(date_of_commissioned: :desc).page(params[:page])
   end
 
   private
 
   def init
-    @lifts = Lift.where('user_id = ? and lift_type_id <> -2', current_user.id)
+    @lifts = Lift.where('user_id = ?', current_user.id)
     @form_date = FormDate.new
   end
 
