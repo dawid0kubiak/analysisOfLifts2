@@ -5,9 +5,9 @@ class CreateLifts < ActiveRecord::Migration[5.1]
       t.date :date_of_booking
       t.date :date_of_commissioned
       t.string :transaction_type
-      t.decimal :amount, precision: 8, scale: 2
+      t.integer :amount
       t.string :currency
-      t.decimal :balance, precision: 8, scale: 2
+      t.integer :balance
       t.string :account
       t.string :name
       t.integer :lift_type_id

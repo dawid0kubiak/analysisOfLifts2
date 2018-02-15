@@ -13,7 +13,8 @@ class ReportsController < ApplicationController
   def all_operation
     @lifts = @lifts.where('amount < 0').where(sql_date).where(@sql)
     @chart_data = chart_data @lifts
-    @lifts = @lifts.order(date_of_commissioned: :desc).page(params[:page])
+    @sum_amount = @lifts.sum(:amount)
+    @lifts = @lifts.order(date_of_commissioned: :desc).page(params[:page]).per(2)
   end
 
   private

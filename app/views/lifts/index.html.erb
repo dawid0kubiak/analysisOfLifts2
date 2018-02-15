@@ -34,7 +34,7 @@
       <td><%= lift.date_of_booking %></td>
       <td><%= lift.date_of_commissioned %></td>
       <td><%= lift.transaction_type %></td>
-      <td id="ammount"><%= lift.amount %></td>
+      <td><%= format_curr lift.amount %></td>
       <td>
         <%= lift.name %>
         <%= lift.account %>
