@@ -3,7 +3,9 @@ class LiftsController < ApplicationController
 
   def index
     session[:i] = 0
-    @lifts = Lift.where('user_id = ?', current_user.id).order(date_of_commissioned: :desc)
+    @lifts = Lift.for_user current_user.id
+    @sum_amount = @lifts.sum(:amount)
+    @lifts = @lifts.order(date_of_commissioned: :desc).page(params[:page]).per(params[:per])
   end
 
   def import

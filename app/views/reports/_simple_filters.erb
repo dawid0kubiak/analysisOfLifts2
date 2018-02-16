@@ -3,14 +3,14 @@
   <div id="skillSet">
     <%= render 'simple_filds', f: f %>
   </div>
-  <%= link_to "<span class=\"glyphicon glyphicon-plus\"></span>".html_safe, 'javascript:;', id: 'addFilter' %>
+  <%= link_to (fa_icon 'plus-circle'), 'javascript:;', id: 'addFilter' %>
   <div class="actions">
-    <%= f.submit 'Filtruj', class: 'btn btn-primary' %>
+    <%= f.submit 'Filtruj', class: 'btn btn-grey' %>
   </div>
 <% end %>
 
 <%= bootstrap_form_tag url: url do |f| %>
-  <div class="hide" id="new_filter_form">
+  <div class="d-none" id="new_filter_form">
     <%= f.select '[simple][]operator', [['i', 'and'], ['lub', 'or']], label: 'warunek' %>
     <%= render 'simple_filds', f: f, locals: {skill: false} %>
   </div>
@@ -22,3 +22,4 @@
         });
     });
 </script>
+

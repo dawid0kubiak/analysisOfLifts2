@@ -1,0 +1,19 @@
+.btn-grey {
+  color: white;
+background-color: #2E2F30;
+  border-color: #2E2F30;
+}
+
+.btn-grey:hover {
+  color: white;
+  background-color: black;
+  border-color: black;
+}
+
+#filterModal > div > div > div.modal-body > ul > li > a {
+   color: black;
+}
+
+#filterModal > div > div > div.modal-body > ul > li > a.active {
+  font-weight: bold ;
+}

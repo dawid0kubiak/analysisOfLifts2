@@ -7,20 +7,21 @@ class ReportsController < ApplicationController
   def cards
     @lifts = @lifts.where(transaction_type: 'Płatność kartą')
     @chart_data = chart_data @lifts
-    @lifts = @lifts.order(date_of_commissioned: :desc)
+    @sum_amount = @lifts.sum(:amount)
+    @lifts = @lifts.order(date_of_commissioned: :desc).page(params[:page]).per(params[:per])
   end
 
   def all_operation
     @lifts = @lifts.where('amount < 0').where(sql_date).where(@sql)
     @chart_data = chart_data @lifts
     @sum_amount = @lifts.sum(:amount)
-    @lifts = @lifts.order(date_of_commissioned: :desc).page(params[:page]).per(2)
+    @lifts = @lifts.order(date_of_commissioned: :desc).page(params[:page]).per(params[:per])
   end
 
   private
 
   def init
-    @lifts = Lift.where('user_id = ?', current_user.id)
+    @lifts = Lift.for_user current_user.id
     @form_date = FormDate.new
   end
 
